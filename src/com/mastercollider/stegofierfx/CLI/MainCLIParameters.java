@@ -22,5 +22,11 @@ public class MainCLIParameters {
             description = "Displays help information")
     private boolean help;
 
+    @Parameter(names = {"-cli", "--command-line-interface"},
+            description = "Open StegofierFx in Command line Interface")
+    private boolean cli;
+
     public boolean isHelp(){return help;}
+
+    public boolean isCli(){return cli;}
 }

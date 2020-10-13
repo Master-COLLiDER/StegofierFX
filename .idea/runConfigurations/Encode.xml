@@ -2,7 +2,7 @@
   <configuration default="false" name="Encode" type="Application" factoryName="Application">
     <option name="MAIN_CLASS_NAME" value="com.mastercollider.stegofierfx.Main" />
     <module name="StegofierFX" />
-    <option name="PROGRAM_PARAMETERS" value="encode  --cover &quot;G:\\logo.png&quot; --output &quot;G:\\Output.png&quot; --message &quot;This is a very big secret!&quot; --encryption-type 3 --color-channel 1 -lsb 1 -pbk &quot;G:\\JCOMMANDER/RSA/publicKey&quot;" />
+    <option name="PROGRAM_PARAMETERS" value="encode  --cover &quot;G:\\logo.png&quot; --output &quot;G:\\Output.png&quot;  --color-channel 1 -lsb 1" />
     <method v="2">
       <option name="Make" enabled="true" />
     </method>

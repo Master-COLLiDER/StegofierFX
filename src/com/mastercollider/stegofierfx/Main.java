@@ -4,11 +4,14 @@ import com.beust.jcommander.JCommander;
 import com.beust.jcommander.ParameterException;
 import com.mastercollider.stegofierfx.CLI.*;
 import com.mastercollider.stegofierfx.Encryption.RSA.RSAKeyPairGenerator;
+import com.mastercollider.stegofierfx.GUI.FX.SplashScreen;
+import javafx.application.Application;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 
-public class Main {
+public class Main extends Application {
 
     final MainCLIParameters mainArgs = new MainCLIParameters();
     final DecodeCLIParameters decodeArgs = new DecodeCLIParameters();
@@ -17,9 +20,15 @@ public class Main {
     private String parsedCommand=null;
 
     public static void main(String[] args) {
-        Main main = new Main();
-        main.handleInputArgs(args);
-        main.run();
+        if (args.length>0)
+        {
+            Main CLIMode = new Main();
+            CLIMode.handleInputArgs(args);
+            CLIMode.run();
+        }
+        else {
+            launch(args);
+        }
     }
 
     void handleInputArgs(String args[]) {
@@ -42,17 +51,16 @@ public class Main {
 
         if (mainArgs.isHelp()) {
             showUsage(jCommander);
-        }else
-        if (jCommander.getParsedCommand() == null)
-        {
-           parsedCommand = "CLI";
+        }else if (mainArgs.isCli()){
+           parsedCommand = "cli";
         }
         else {
             if (jCommander.getParsedCommand() == "encode")
             {
                 if (encodeArgs.isHelp()) {
                     showUsage(jCommander);
-                }else if (encodeArgs.encryptionType>0)
+                }
+                else if (encodeArgs.encryptionType>0)
                 {
                     if (encodeArgs.isRSA())
                     {
@@ -111,6 +119,7 @@ public class Main {
                 } catch (NoSuchAlgorithmException | IOException e) {
                     e.printStackTrace();
                 }
+                System.exit(1);
                 break;
             case "encode":
                 System.out.println(encodeArgs);
@@ -119,6 +128,7 @@ public class Main {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+                System.exit(1);
                 break;
             case "decode":
                 System.out.println(decodeArgs);
@@ -130,10 +140,19 @@ public class Main {
                 } finally {
                     System.out.println("Hidden Message: "+message);
                 }
+                System.exit(1);
                 break;
-            case  "CLI":
+
+            case "cli":
                 CLIExecutor.RunCLI();
                 break;
+
         }
+    }
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        SplashScreen splashScreen = new SplashScreen();
+        splashScreen.start(primaryStage);
     }
 }

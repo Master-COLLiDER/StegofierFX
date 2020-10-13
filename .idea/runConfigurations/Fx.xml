@@ -1,7 +1,8 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Fx" type="Application" factoryName="Application">
-    <option name="MAIN_CLASS_NAME" value="com.mastercollider.stegofierfx.GUI.Main" />
+    <option name="MAIN_CLASS_NAME" value="com.mastercollider.stegofierfx.Main" />
     <module name="StegofierFX" />
+    <option name="PROGRAM_PARAMETERS" value="-cli" />
     <option name="VM_PARAMETERS" value="--module-path &quot;C:\Program Files\Java\javafx-sdk-11.0.2\lib&quot; --add-modules javafx.controls,javafx.fxml" />
     <method v="2">
       <option name="Make" enabled="true" />
