@@ -247,7 +247,7 @@
                               </Label>
                               <Separator layoutX="32.0" layoutY="476.0" opacity="0.2" prefWidth="712.0" stylesheets="@../style.css" />
                               <Label fx:id="labelMessageCharacterLength" contentDisplay="CENTER" layoutX="488.0" layoutY="426.0" prefHeight="39.0" prefWidth="214.0" text="Characters : 0" textFill="#ebf007" />
-                              <Label alignment="CENTER" contentDisplay="CENTER" disable="true" layoutX="297.0" layoutY="493.0" prefHeight="39.0" prefWidth="183.0" text="Encryption" textAlignment="CENTER" textFill="#d1d32f" underline="true">
+                              <Label fx:id="labelEncryptionHeader" alignment="CENTER" contentDisplay="CENTER" disable="true" layoutX="297.0" layoutY="493.0" prefHeight="39.0" prefWidth="183.0" text="Encryption" textAlignment="CENTER" textFill="#d1d32f" underline="true">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
@@ -404,7 +404,7 @@
                                     <Font name="System Bold" size="15.0" />
                                  </font>
                               </Label>
-                              <VBox disable="true" layoutX="33.0" layoutY="1352.0" prefHeight="220.0" prefWidth="712.0" style="-fx-border-color: #1e28f5;">
+                              <VBox fx:id="groupAditionalOptions" disable="true" layoutX="33.0" layoutY="1352.0" prefHeight="220.0" prefWidth="712.0" style="-fx-border-color: #1e28f5;">
                                  <children>
                                     <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-border-color: #1e28f5; -fx-padding: 10;">
                                        <children>

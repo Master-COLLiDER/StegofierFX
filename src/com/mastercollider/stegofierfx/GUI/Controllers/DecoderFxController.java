@@ -1,12 +1,20 @@
 package com.mastercollider.stegofierfx.GUI.Controllers;
 
 
+import com.jfoenix.controls.JFXCheckBox;
 import com.mastercollider.stegofierfx.GUI.FX.EncoderFX;
 import com.mastercollider.stegofierfx.GUI.FX.RSAKeyGeneratorFX;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextArea;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.awt.*;
@@ -19,28 +27,34 @@ import java.util.ResourceBundle;
 public class DecoderFxController implements Initializable {
 
 
+    @FXML public Label labelSelectedCoverImage;
+    @FXML public Button btnBrowseCoverImage;
+    @FXML public Label labelInvalidCoverImage;
+    @FXML public TextArea textAreaOutput;
+    @FXML public VBox groupDecryption;
+    @FXML public HBox groupPassword;
+    @FXML public PasswordField passwordField;
+    @FXML public HBox groupPrivateKey;
+    @FXML public Label labelSelectedPrivteKey;
+    @FXML public Button btnBrowsePrivateKey;
+    @FXML public Label labelDecryptionError;
+    @FXML public ImageView imageViewCoverImage;
+    @FXML public GridPane groupImageDetails;
+    @FXML public Label labelEncryptionType;
+    @FXML public Label labelColorChannel;
+    @FXML public Button btnStartDecoding;
+    @FXML public Label labelDecodingError;
+    @FXML public HBox groupOutputFile;
+    @FXML public Label labelSelectedOutput;
+    @FXML public Button btnBrowseOutput;
+    @FXML public JFXCheckBox jfxCheckboxOutput;
 
-    @FXML
-    private Button btnMainMinimize;
 
-    @FXML
-    private Button btnMainExit;
-
-    @FXML
-    private Button btnMainHelp;
-
-    @FXML
-    private Button btnSideBarEncode;
-
-    @FXML
-    private Button btnSideBarDecode;
-
-    @FXML
-    private Button btnSideBarGenerateRSAKeys;
-
-    @FXML
-    private Button btnSideBarHelp;
-
+    @FXML private Button btnMainMinimize;
+    @FXML private Button btnMainExit;
+    @FXML private Button btnSideBarEncode;
+    @FXML private Button btnSideBarDecode;
+    @FXML private Button btnSideBarGenerateRSAKeys;
 
 
     @Override

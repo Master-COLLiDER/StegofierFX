@@ -3,7 +3,9 @@ package com.mastercollider.stegofierfx;
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.ParameterException;
 import com.mastercollider.stegofierfx.CLI.*;
+import com.mastercollider.stegofierfx.Encoder.Encoder;
 import com.mastercollider.stegofierfx.Encryption.RSA.RSAKeyPairGenerator;
+import com.mastercollider.stegofierfx.GUI.FX.EncoderFX;
 import com.mastercollider.stegofierfx.GUI.FX.SplashScreen;
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -152,7 +154,9 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        SplashScreen splashScreen = new SplashScreen();
-        splashScreen.start(primaryStage);
+//        SplashScreen splashScreen = new SplashScreen();
+//        splashScreen.start(primaryStage);
+        EncoderFX encoderFX = new EncoderFX();
+        encoderFX.start(primaryStage);
     }
 }
