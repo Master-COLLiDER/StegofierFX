@@ -1,4 +1,4 @@
-package GUI.FX;
+package com.mastercollider.stegofierfx.GUI.FX;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

@@ -1,5 +1,6 @@
 package com.mastercollider.stegofierfx.GUI.Controllers;
 
+import com.mastercollider.stegofierfx.GUI.FX.DecoderFX;
 import com.mastercollider.stegofierfx.GUI.FX.RSAKeyGeneratorFX;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -55,7 +56,7 @@ public class EncoderFxController implements Initializable {
         }
         else if (actionEvent.getSource() == btnSideBarDecode) {
             try {
-                GUI.FX.DecoderFX decoderFX = new GUI.FX.DecoderFX();
+               DecoderFX decoderFX = new DecoderFX();
                 Stage currentStage = (Stage) btnSideBarDecode.getScene().getWindow();
                 decoderFX.display(currentStage);
 

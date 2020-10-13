@@ -1,6 +1,8 @@
 package com.mastercollider.stegofierfx.GUI.Controllers;
 
-import GUI.FX.DecoderFX;
+
+import com.mastercollider.stegofierfx.Encryption.RSA.RSAKeyPairGenerator;
+import com.mastercollider.stegofierfx.GUI.FX.DecoderFX;
 import com.mastercollider.stegofierfx.GUI.FX.EncoderFX;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,6 +20,8 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.nio.file.Path;
+import java.security.NoSuchAlgorithmException;
 import java.util.ResourceBundle;
 
 public class RSAKeysGeneratorFxController implements Initializable {
@@ -91,6 +95,11 @@ public class RSAKeysGeneratorFxController implements Initializable {
     }
 
     private void startGeneration() {
+        try {
+            RSAKeyPairGenerator.GenerateKeyToFiles(selectedDirectory.toString()+"\\");
+        } catch (NoSuchAlgorithmException | IOException e) {
+            e.printStackTrace();
+        }
         System.out.println("Generated");
     }
 
