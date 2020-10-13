@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="primaryPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="1050.0" style="-fx-background-color: #02030A;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mastercollider.stegofierfx.GUI.Controllers.RSAKeysGeneratorFxController">
+   <children>
+      <VBox alignment="TOP_CENTER" prefHeight="576.0" prefWidth="256.0" style="-fx-background-color: #05071F;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fitHeight="172.0" fitWidth="191.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/logo_black_background.png" />
+               </image>
+               <VBox.margin>
+                  <Insets bottom="10.0" top="50.0" />
+               </VBox.margin></ImageView>
+            <Label style="-fx-text-fill: white;" text="Stegofier 1.0">
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </Label>
+            <Button fx:id="btnSideBarEncode" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="73.0" prefWidth="256.0" style="-fx-border-color: #65073F;" stylesheets="@../style.css" text="Encoder" textFill="#e7e5e5">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/lock_32px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets bottom="1.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="btnSideBarDecode" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="73.0" prefWidth="256.0" style="-fx-border-color: #65073F;" stylesheets="@../style.css" text="Decoder">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/unlock_32px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="1.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="btnSideBarGenerateRSAKeys" alignment="BASELINE_LEFT" disable="true" graphicTextGap="10.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="73.0" prefWidth="256.0" style="-fx-border-color: #65073F; -fx-background-color: #12135A;" stylesheets="@../style.css" text="Generate RSA Keys">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/key_32px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="1.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+            </Button>
+            <Button fx:id="btnSideBarExit" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="15.0" layoutY="459.0" mnemonicParsing="false" onAction="#doCloseApplication" prefHeight="73.0" prefWidth="256.0" style="-fx-border-color: #65073F;" stylesheets="@../style.css" text="Exit">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/icons8_Sign_Out_32px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </VBox>
+      <StackPane layoutX="258.0" prefHeight="576.0" prefWidth="793.0" style="-fx-background-color: #02030A;">
+         <children>
+            <Pane layoutX="10.0" layoutY="10.0" prefHeight="554.0" prefWidth="793.0">
+               <children>
+                  <HBox alignment="TOP_RIGHT" layoutX="635.0" layoutY="14.0" prefHeight="53.0" prefWidth="145.0">
+                     <children>
+                        <VBox alignment="CENTER" prefWidth="40.0">
+                           <children>
+                              <Button fx:id="btnMainMinimize" mnemonicParsing="false" onAction="#doMinimizeApplication" prefWidth="40.0" styleClass="minButton" stylesheets="@../style.css" text="-">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <font>
+                                    <Font name="Britannic Bold" size="15.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="5.0" right="10.0" top="10.0" />
+                           </HBox.margin>
+                        </VBox>
+                        <VBox alignment="CENTER" prefWidth="40.0">
+                           <children>
+                              <Button fx:id="btnMainExit" mnemonicParsing="false" onAction="#doCloseApplication" prefWidth="40.0" styleClass="closeButton" stylesheets="@../style.css" text="X" textFill="WHITE">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <font>
+                                    <Font name="Britannic Bold" size="15.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="5.0" right="10.0" top="10.0" />
+                           </HBox.margin>
+                        </VBox>
+                     </children>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </HBox>
+                  <VBox alignment="CENTER" layoutX="7.0" layoutY="88.0" prefHeight="482.0" prefWidth="780.0" spacing="5.0" style="-fx-background-color: #0f000c; -fx-border-color: #FFFFFF;">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                     <children>
+                        <Label text="Select a directory to generate RSA key pairs." textFill="WHITE">
+                           <font>
+                              <Font size="28.0" />
+                           </font>
+                        </Label>
+                        <ButtonBar buttonOrder="" prefHeight="40.0" prefWidth="497.0" style="-fx-border-color: #1e28f5; -fx-background-radius: 25; -fx-background-color: #1f111c; -fx-border-radius: 25;">
+                           <buttons>
+                              <Label fx:id="labelSelectedDir" alignment="CENTER" contentDisplay="CENTER" prefHeight="18.0" prefWidth="370.0" text="No directory selected" textAlignment="RIGHT" textFill="WHITE">
+                                 <cursor>
+                                    <Cursor fx:constant="DEFAULT" />
+                                 </cursor>
+                                 <font>
+                                    <Font name="System Italic" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="btnGeneratorBrowse" mnemonicParsing="false" onAction="#handleClicks" prefHeight="39.0" prefWidth="106.0" styleClass="browseButton" stylesheets="@../style.css" text="Browse" textFill="WHITE">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <font>
+                                    <Font name="Monospaced Regular" size="25.0" />
+                                 </font>
+                              </Button>
+                           </buttons>
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="50.0" right="50.0" top="50.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </ButtonBar>
+                        <Label fx:id="labelGeneratorError" text="Invalid Directory" textFill="#ff0b0b" visible="false">
+                           <VBox.margin>
+                              <Insets bottom="50.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="Monospaced Regular" size="15.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="btnGenerate" defaultButton="true" disable="true" mnemonicParsing="false" onAction="#handleClicks" prefHeight="35.0" prefWidth="398.0" styleClass="greenButton" stylesheets="@../style.css" text="Generate RSA Key Pairs" textFill="WHITE">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font name="Monospaced Regular" size="26.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </VBox>
+                  <Label layoutX="14.0" layoutY="27.0" prefHeight="35.0" prefWidth="367.0" text="Generate RSA Key Pairs" textFill="#e7e5e5">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Hyperlink layoutX="311.0" layoutY="27.0" onAction="#openGithub" prefHeight="35.0" prefWidth="276.0" text="https://github.com/Master-COLLiDER" />
+               </children>
+            </Pane>
+         </children>
+      </StackPane>
+   </children>
+   <effect>
+      <DropShadow color="#1b1eeb" />
+   </effect>
+</AnchorPane>

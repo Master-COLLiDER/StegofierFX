@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Decode" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="com.mastercollider.stegofierfx.Main" />
+    <module name="StegofierFX" />
+    <option name="PROGRAM_PARAMETERS" value="decode  -c &quot;G:\\Output.png&quot; -pvtk &quot;G:\\JCOMMANDER/RSA/privateKey&quot; -o G:\\abc.txt" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

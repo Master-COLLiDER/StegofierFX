@@ -1,0 +1,569 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXSlider?>
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="1050.0" style="-fx-background-color: #02030A;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mastercollider.stegofierfx.GUI.Controllers.EncoderFxController">
+   <children>
+      <VBox alignment="TOP_CENTER" prefHeight="576.0" prefWidth="256.0" style="-fx-background-color: #05071F;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fitHeight="172.0" fitWidth="191.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/logo_black_background.png" />
+               </image>
+               <VBox.margin>
+                  <Insets bottom="10.0" top="50.0" />
+               </VBox.margin></ImageView>
+            <Label style="-fx-text-fill: white;" text="Stegofier 1.0">
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </Label>
+            <Button fx:id="btnSideBarEncode" alignment="BASELINE_LEFT" disable="true" graphicTextGap="10.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="73.0" prefWidth="256.0" style="-fx-border-color: #65073F; -fx-background-color: #12135A;" stylesheets="@../style.css" text="Encoder" textFill="#e7e5e5">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/lock_32px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <VBox.margin>
+                  <Insets bottom="1.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+            </Button>
+            <Button fx:id="btnSideBarDecode" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="73.0" prefWidth="256.0" style="-fx-border-color: #65073F;" stylesheets="@../style.css" text="Decoder">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/unlock_32px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="1.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="btnSideBarGenerateRSAKeys" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" onAction="#handleClicks" prefHeight="73.0" prefWidth="256.0" style="-fx-border-color: #65073F;" stylesheets="@../style.css" text="Generate RSA Keys">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/key_32px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="1.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="btnSideBarExit" alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutX="15.0" layoutY="459.0" mnemonicParsing="false" onAction="#doCloseApplication" prefHeight="73.0" prefWidth="256.0" style="-fx-border-color: #65073F;" stylesheets="@../style.css" text="Exit">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/icons8_Sign_Out_32px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+      <StackPane layoutX="258.0" prefHeight="576.0" prefWidth="793.0" style="-fx-background-color: #02030A;">
+         <children>
+            <Pane layoutX="10.0" layoutY="10.0" prefHeight="554.0" prefWidth="793.0">
+               <children>
+                  <HBox alignment="TOP_RIGHT" layoutX="635.0" layoutY="14.0" prefHeight="53.0" prefWidth="145.0">
+                     <children>
+                        <VBox alignment="CENTER" prefWidth="40.0">
+                           <children>
+                              <Button fx:id="btnMainMinimize" mnemonicParsing="false" onAction="#doMinimizeApplication" prefWidth="40.0" styleClass="minButton" stylesheets="@../style.css" text="-">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <font>
+                                    <Font name="Britannic Bold" size="15.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="5.0" right="10.0" top="10.0" />
+                           </HBox.margin>
+                        </VBox>
+                        <VBox alignment="CENTER" prefWidth="40.0">
+                           <children>
+                              <Button fx:id="btnMainExit" mnemonicParsing="false" onAction="#doCloseApplication" prefWidth="40.0" styleClass="closeButton" stylesheets="@../style.css" text="X">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <font>
+                                    <Font name="Britannic Bold" size="15.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                           <HBox.margin>
+                              <Insets bottom="10.0" left="5.0" right="10.0" top="10.0" />
+                           </HBox.margin>
+                        </VBox>
+                     </children>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </HBox>
+                  <ScrollPane layoutY="88.0" prefHeight="474.0" prefWidth="793.0" stylesheets="@../style.css">
+                     <content>
+                        <AnchorPane prefHeight="1706.0" prefWidth="776.0" style="-fx-background-color: #0f000c; -fx-border-color: #FFFFFF;" stylesheets="@../style.css">
+                           <children>
+                              <ButtonBar buttonOrder="" layoutX="202.0" layoutY="62.0" prefHeight="40.0" prefWidth="497.0" style="-fx-border-color: #1e28f5; -fx-background-radius: 25; -fx-background-color: #1f111c; -fx-border-radius: 25;">
+                                 <buttons>
+                                    <Label fx:id="labelSelectedCoverImage" contentDisplay="CENTER" prefHeight="18.0" prefWidth="370.0" text="Select a cover image" textAlignment="RIGHT" textFill="WHITE">
+                                       <cursor>
+                                          <Cursor fx:constant="DEFAULT" />
+                                       </cursor>
+                                       <font>
+                                          <Font name="System Italic" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="btnBrowseCoverImage" mnemonicParsing="false" prefHeight="39.0" prefWidth="106.0" styleClass="browseButton" stylesheets="@../style.css" text="Browse" textFill="WHITE">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <font>
+                                          <Font name="Monospaced Regular" size="18.0" />
+                                       </font>
+                                    </Button>
+                                 </buttons>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </ButtonBar>
+                              <Label alignment="TOP_RIGHT" layoutX="55.0" layoutY="72.0" prefHeight="27.0" prefWidth="110.0" text="Cover :" textFill="#ddd9d9">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="labelInvalidCoverImage" alignment="CENTER" layoutX="81.0" layoutY="120.0" prefHeight="19.0" prefWidth="616.0" text="Invalid Cover Image" textFill="#ff0b0b" visible="false">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="15.0" />
+                                 </font>
+                              </Label>
+                              <ButtonBar buttonOrder="" layoutX="202.0" layoutY="171.0" prefHeight="40.0" prefWidth="497.0" style="-fx-border-color: #1e28f5; -fx-background-radius: 25; -fx-background-color: #1f111c; -fx-border-radius: 25;">
+                                 <buttons>
+                                    <Label fx:id="labelSelectedOutputFile" contentDisplay="CENTER" prefHeight="18.0" prefWidth="370.0" text="Select a output file" textAlignment="RIGHT" textFill="WHITE">
+                                       <cursor>
+                                          <Cursor fx:constant="DEFAULT" />
+                                       </cursor>
+                                       <font>
+                                          <Font name="System Italic" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="btnBrowseOutputFile" mnemonicParsing="false" prefHeight="39.0" prefWidth="106.0" styleClass="browseButton" stylesheets="@../style.css" text="Browse" textFill="WHITE">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <font>
+                                          <Font name="Monospaced Regular" size="18.0" />
+                                       </font>
+                                    </Button>
+                                 </buttons>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </ButtonBar>
+                              <Label alignment="TOP_RIGHT" layoutX="46.0" layoutY="180.0" prefHeight="23.0" prefWidth="119.0" text="Output :" textFill="#ddd9d9">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="labelInvalidOutputImage" alignment="CENTER" layoutX="75.0" layoutY="231.0" prefHeight="19.0" prefWidth="627.0" text="Invalid Output" textFill="#ff0b0b" visible="false">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="15.0" />
+                                 </font>
+                              </Label>
+                              <TextArea fx:id="textAreaMessage" layoutX="209.0" layoutY="293.0" prefHeight="113.0" prefWidth="483.0" promptText="Enter your message here !!!!!!" stylesheets="@../style.css" wrapText="true">
+                                 <cursor>
+                                    <Cursor fx:constant="TEXT" />
+                                 </cursor>
+                              </TextArea>
+                              <Label alignment="TOP_RIGHT" layoutX="51.0" layoutY="334.0" prefHeight="23.0" prefWidth="119.0" text="Message :" textFill="#ddd9d9">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="labelInvalidMessage" alignment="CENTER_RIGHT" layoutX="37.0" layoutY="435.0" prefHeight="21.0" prefWidth="435.0" text="Invalid Messege" textFill="#ff0b0b" visible="false">
+                                 <font>
+                                    <Font name="Monospaced Regular" size="15.0" />
+                                 </font>
+                              </Label>
+                              <Separator layoutX="32.0" layoutY="476.0" opacity="0.2" prefWidth="712.0" stylesheets="@../style.css" />
+                              <Label fx:id="labelMessageCharacterLength" contentDisplay="CENTER" layoutX="488.0" layoutY="426.0" prefHeight="39.0" prefWidth="214.0" text="Characters : 0" textFill="#ebf007" />
+                              <Label alignment="CENTER" contentDisplay="CENTER" disable="true" layoutX="297.0" layoutY="493.0" prefHeight="39.0" prefWidth="183.0" text="Encryption" textAlignment="CENTER" textFill="#d1d32f" underline="true">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <VBox fx:id="groupEncryption" disable="true" layoutX="33.0" layoutY="558.0" prefHeight="358.0" prefWidth="712.0" style="-fx-border-color: #1e28f5; -fx-padding: 30;">
+                                 <children>
+                                    <JFXCheckBox fx:id="jfxCheckboxEncryptMessage" prefHeight="30.0" prefWidth="669.0" text="Encrypt Message" textFill="#da9a05" unCheckedColor="#d7c613">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </JFXCheckBox>
+                                    <HBox fx:id="groupEncryptionType" alignment="CENTER_LEFT" disable="true" prefHeight="100.0" prefWidth="200.0" style="-fx-border-color: #1e28f5; -fx-padding: 10;">
+                                       <children>
+                                          <Label prefHeight="27.0" prefWidth="132.0" text="Encryption type:" textFill="#c6cd09">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <RadioButton fx:id="radioButtonAES" mnemonicParsing="false" selected="true" text="AES-256" textFill="#f5d507">
+                                             <HBox.margin>
+                                                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                             </HBox.margin>
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                             <toggleGroup>
+                                                <ToggleGroup fx:id="radioGroupencryptionType" />
+                                             </toggleGroup>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </RadioButton>
+                                          <RadioButton fx:id="radioButtonTripleDES" layoutX="173.0" layoutY="45.0" mnemonicParsing="false" text="TripleDES" textFill="#f5d507" toggleGroup="$radioGroupencryptionType">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                             </HBox.margin>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </RadioButton>
+                                          <RadioButton fx:id="RadioButtonRSA" layoutX="303.0" layoutY="45.0" mnemonicParsing="false" text="RSA" textFill="#f5d507" toggleGroup="$radioGroupencryptionType">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                             </HBox.margin>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </RadioButton>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" top="10.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                    <HBox fx:id="groupPassword" alignment="CENTER_LEFT" disable="true" layoutX="41.0" layoutY="81.0" prefHeight="68.0" prefWidth="637.0" style="-fx-border-color: #1e28f5; -fx-padding: 10;">
+                                       <children>
+                                          <Label alignment="TOP_LEFT" prefHeight="30.0" prefWidth="135.0" text="Password:" textFill="#c6cd09">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <PasswordField fx:id="passwordField" prefHeight="49.0" prefWidth="407.0" promptText="Enter the Password" style="-fx-border-color: #1e28f5; -fx-background-color: #030233; -fx-background-insets: 0; -fx-border-radius: 20;" styleClass="text-input" stylesheets="@../style.css">
+                                             <font>
+                                                <Font name="Monospaced Regular" size="18.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                             </HBox.margin>
+                                             <cursor>
+                                                <Cursor fx:constant="TEXT" />
+                                             </cursor>
+                                          </PasswordField>
+                                       </children>
+                                    </HBox>
+                                    <HBox fx:id="groupPublicKey" alignment="CENTER_LEFT" disable="true" layoutX="41.0" layoutY="191.0" prefHeight="89.0" prefWidth="661.0" style="-fx-border-color: #1e28f5; -fx-padding: 10;">
+                                       <children>
+                                          <Label alignment="TOP_LEFT" prefHeight="30.0" prefWidth="151.0" text="Public Key:" textFill="#c6cd09">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <ButtonBar buttonOrder="" prefHeight="36.0" prefWidth="402.0" style="-fx-border-color: #1e28f5; -fx-background-radius: 25; -fx-background-color: #1f111c; -fx-border-radius: 25;">
+                                             <buttons>
+                                                <Label fx:id="labelSelectedPublicKey" contentDisplay="CENTER" prefHeight="17.0" prefWidth="370.0" text="Select a Public Key" textAlignment="RIGHT" textFill="WHITE">
+                                                   <cursor>
+                                                      <Cursor fx:constant="DEFAULT" />
+                                                   </cursor>
+                                                   <font>
+                                                      <Font name="System Italic" size="12.0" />
+                                                   </font>
+                                                </Label>
+                                                <Button fx:id="btnBrowsePublicKey" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="31.0" prefWidth="106.0" styleClass="browseButton" stylesheets="@../style.css" text="Browse" textFill="WHITE">
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                   <font>
+                                                      <Font name="Monospaced Regular" size="18.0" />
+                                                   </font>
+                                                </Button>
+                                             </buttons>
+                                             <padding>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                             </padding>
+                                             <HBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </HBox.margin>
+                                          </ButtonBar>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" top="10.0" />
+                                       </VBox.margin>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                              <Label fx:id="labelEncryptionErrorMessage" alignment="CENTER" layoutX="108.0" layoutY="532.0" prefHeight="21.0" prefWidth="561.0" text="Encryption Error Message" textFill="RED" visible="false" />
+                              <Separator layoutX="33.0" layoutY="991.0" opacity="0.2" prefWidth="712.0" stylesheets="@../style.css" />
+                              <ImageView fx:id="ImageviewEncoder" fitHeight="220.0" fitWidth="240.0" layoutX="55.0" layoutY="1080.0" pickOnBounds="true" style="-fx-background-color: #030233; fx-border-color: #1e28f5;">
+                                 <cursor>
+                                    <Cursor fx:constant="DEFAULT" />
+                                 </cursor>
+                                 <image>
+                                    <Image url="@../../../../ImageSteganographyJavaFX/src/com/collider/imagesteganography/res/noimageselected.png" />
+                                 </image>
+                                 <effect>
+                                    <DropShadow>
+                                       <color>
+                                          <Color blue="0.7605262994766235" green="0.10281188786029816" red="0.10281188786029816" />
+                                       </color>
+                                    </DropShadow>
+                                 </effect>
+                                 <viewport>
+                                    <Rectangle2D />
+                                 </viewport>
+                              </ImageView>
+                              <Label layoutX="55.0" layoutY="1059.0" text="Selected Cover Image" textFill="#0b829a">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </Label>
+                              <VBox disable="true" layoutX="33.0" layoutY="1352.0" prefHeight="220.0" prefWidth="712.0" style="-fx-border-color: #1e28f5;">
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" style="-fx-border-color: #1e28f5; -fx-padding: 10;">
+                                       <children>
+                                          <Label prefHeight="27.0" prefWidth="196.0" text="Color Channels :" textFill="#c6cd09">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <JFXCheckBox fx:id="jfxCheckBoxRed" checkedColor="RED" prefHeight="30.0" prefWidth="26.0" text="RED" textFill="#ff1616" unCheckedColor="WHITE">
+                                             <font>
+                                                <Font name="System Bold Italic" size="18.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </HBox.margin>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </JFXCheckBox>
+                                          <JFXCheckBox fx:id="jfxCheckBoxGreen" checkedColor="GREEN" layoutX="142.0" layoutY="45.0" prefHeight="30.0" prefWidth="46.0" text="GREEN" textFill="#0fe10f" unCheckedColor="WHITE">
+                                             <font>
+                                                <Font name="System Bold Italic" size="18.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </HBox.margin>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </JFXCheckBox>
+                                          <JFXCheckBox fx:id="jfxCheckBoxBlue" checkedColor="BLUE" layoutX="318.0" layoutY="45.0" prefHeight="30.0" prefWidth="58.0" selected="true" text="BLUE" textFill="AQUA" unCheckedColor="WHITE">
+                                             <font>
+                                                <Font name="System Bold Italic" size="18.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </HBox.margin>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </JFXCheckBox>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER_LEFT" layoutX="31.0" layoutY="31.0" prefHeight="100.0" prefWidth="200.0" style="-fx-border-color: #1e28f5; -fx-padding: 10;">
+                                       <children>
+                                          <Label prefHeight="27.0" prefWidth="203.0" text="Least Significant Bits :" textFill="#c6cd09">
+                                             <font>
+                                                <Font size="18.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                          <JFXSlider fx:id="jfxSliderLSB" blockIncrement="1.0" majorTickUnit="1.0" max="8.0" min="1.0" minorTickCount="0" prefHeight="18.0" prefWidth="426.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="1.0">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </JFXSlider>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                 </padding>
+                              </VBox>
+                              <GridPane fx:id="groupImageDetails" alignment="CENTER" disable="true" gridLinesVisible="true" layoutX="318.0" layoutY="1080.0" prefHeight="220.0" prefWidth="426.0" style="-fx-border-color: #1e28f5;">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="232.0" minWidth="10.0" prefWidth="226.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="207.0" minWidth="10.0" prefWidth="198.0" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <Label fx:id="labelTextSize" alignment="CENTER" layoutX="11.0" layoutY="11.0" prefHeight="0.0" prefWidth="218.0" text="0 Bytes" textFill="#eaff00" GridPane.columnIndex="1">
+                                       <font>
+                                          <Font name="Monospaced Regular" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="labelEncryptedTextSize" alignment="CENTER" layoutX="211.0" layoutY="11.0" prefHeight="0.0" prefWidth="269.0" text="0 Bytes" textFill="#eaff00" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                       <font>
+                                          <Font name="Monospaced Regular" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="11.0" layoutY="84.0" prefHeight="0.0" prefWidth="397.0" text="Encrypted Text Size:" textFill="#99d71e" GridPane.rowIndex="1">
+                                       <padding>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </padding>
+                                       <font>
+                                          <Font name="Monospaced Regular" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="labelMaxRequiredPixels" alignment="CENTER" layoutX="211.0" layoutY="84.0" prefHeight="0.0" prefWidth="257.0" text="∞ Bytes" textFill="#eaff00" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                       <font>
+                                          <Font name="Monospaced Regular" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="211.0" layoutY="11.0" prefHeight="0.0" prefWidth="360.0" text="Maximum Required Pixels:" textFill="#99d71e" GridPane.rowIndex="2">
+                                       <padding>
+                                          <Insets bottom="1.0" left="10.0" right="1.0" top="1.0" />
+                                       </padding>
+                                       <font>
+                                          <Font name="Monospaced Regular" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="211.0" layoutY="84.0" prefHeight="0.0" prefWidth="391.0" text="Text Size:" textFill="#99d71e">
+                                       <padding>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </padding>
+                                       <font>
+                                          <Font name="Monospaced Regular" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="11.0" layoutY="121.0" prefHeight="11.0" prefWidth="248.0" text="Total Available Pixels:" textFill="#99d71e" GridPane.rowIndex="3">
+                                       <padding>
+                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                       </padding>
+                                       <font>
+                                          <Font name="Monospaced Regular" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="labelTotalAvailablePixels" alignment="CENTER" layoutX="211.0" layoutY="121.0" prefHeight="0.0" prefWidth="371.0" text="0 Bytes" textFill="#eaff00" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                       <font>
+                                          <Font name="Monospaced Regular" size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </GridPane>
+                              <Button fx:id="btnStartEncoding" defaultButton="true" disable="true" layoutX="175.0" layoutY="1614.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="398.0" styleClass="greenButton" stylesheets="@../style.css" text="Start Encoding" textFill="WHITE">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <font>
+                                    <Font name="Monospaced Regular" size="26.0" />
+                                 </font>
+                              </Button>
+                              <Label fx:id="labelEncodingError" layoutX="357.0" layoutY="1583.0" text="ERROR" textFill="#ff0707" visible="false" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </ScrollPane>
+                  <Label layoutX="14.0" layoutY="27.0" prefHeight="35.0" prefWidth="180.0" text="Encoder" textFill="#e7e5e5">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Hyperlink layoutX="310.0" layoutY="27.0" onAction="#openGithub" prefHeight="35.0" prefWidth="246.0" text="https://github.com/Master-COLLiDER" />
+               </children>
+            </Pane>
+         </children>
+      </StackPane>
+   </children>
+   <effect>
+      <DropShadow color="#1b1eeb" />
+   </effect>
+</AnchorPane>

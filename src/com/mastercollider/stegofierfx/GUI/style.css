@@ -1,0 +1,118 @@
+.button
+{
+-fx-background-color : #05071F;
+-fx-text-fill : #e7e5e5;
+}
+.button:hover{
+-fx-background-color : #10165F;
+}
+.button:pressed
+{
+-fx-background-color : #1620A1;
+}
+
+.minButton
+{
+    -fx-background-color : #3F0000;
+    -fx-text-fill :  #00e8f0;
+    -fx-border-color: #00e8f0;
+}
+.minButton:hover{
+    -fx-background-color : #3Fe890;
+    -fx-text-fill : #000000;
+}
+.minButton:pressed
+{
+    -fx-background-color : #2a81ad;
+    -fx-text-fill : #000000;
+}
+.closeButton
+{
+    -fx-background-color : #3F0000;
+    -fx-text-fill : #e7e5e5;
+    -fx-border-color: #ff0000;
+}
+.closeButton:hover{
+    -fx-background-color : #ff0000;
+}
+.closeButton:pressed
+{
+    -fx-background-color : #940000;
+    -fx-text-fill : #000000;
+}
+
+.greenButton{
+    -fx-background-color:  #006305;
+    -fx-text-fill: #eaeaea;
+}
+.greenButton:hover{
+    -fx-background-color: #009a05;
+    -fx-text-fill: whitesmoke;
+
+}
+.greenButton:pressed{
+    -fx-background-color: #20ad1e;
+    -fx-text-fill: black;
+}
+
+
+.browseButton{
+    -fx-border-color:  #1e28f5;
+    -fx-background-radius:  20;
+    -fx-background-color:  #030233;
+    -fx-border-radius:  20;
+    -fx-padding:  3;
+}
+.browseButton:hover{
+    -fx-background-color: #030276;
+
+}
+.browseButton:pressed{
+    -fx-background-color: #060492;
+}
+
+.text-area *.content {
+    -fx-background-color:  #030233;
+    -fx-border-color: #1e28f5;
+}
+
+.text-area {
+    -fx-text-fill: green;
+    -fx-background-insets:0;
+    -fx-font-size: 18;
+}
+
+.separator{
+    -fx-background-color: #2f161c ;
+    -fx-border-color: #2f161c;
+    -fx-border-width: 3;
+
+}
+
+
+.scroll-pane {
+    -fx-background-color: #0f000c;
+}
+
+.scroll-bar:horizontal, .scroll-bar:vertical{
+    -fx-background-color:transparent;
+}
+
+.increment-button, .decrement-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.scroll-bar:horizontal .track,
+.scroll-bar:vertical .track{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: 0em;
+}
+
+.scroll-bar:horizontal .thumb,
+.scroll-bar:vertical .thumb {
+    -fx-background-color: #10165F;
+    -fx-background-radius: 5em;
+}
+
