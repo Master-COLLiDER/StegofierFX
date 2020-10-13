@@ -18,6 +18,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.awt.*;
+import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -90,6 +91,10 @@ public class DecoderFxController implements Initializable {
                 e.printStackTrace();
             }
         }
+    }
+
+    public void openChooseCoverImage(){
+
     }
 
     public void doMinimizeApplication()

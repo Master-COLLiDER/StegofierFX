@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXSlider;
 import com.mastercollider.stegofierfx.GUI.FX.DecoderFX;
 import com.mastercollider.stegofierfx.GUI.FX.RSAKeyGeneratorFX;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -11,13 +12,18 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import javax.imageio.ImageIO;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -26,6 +32,8 @@ import java.util.ResourceBundle;
 
 public class EncoderFxController implements Initializable {
 
+    File selectedCoverImageFile =  null;
+    File selectedOutputImageFile = null;
 
 
     @FXML
@@ -83,7 +91,6 @@ public class EncoderFxController implements Initializable {
     }
 
 
-
     public void handleClicks(ActionEvent actionEvent) {
 
         if (actionEvent.getSource() == btnSideBarEncode) {
@@ -106,6 +113,56 @@ public class EncoderFxController implements Initializable {
 
             } catch(Exception e) {
                 e.printStackTrace();
+            }
+        }
+    }
+
+    public void openChooseCoverImage(){
+        FileChooser fileChooser = new FileChooser();
+        FileChooser.ExtensionFilter extFilterPNG = new FileChooser.ExtensionFilter("PNG files (*.png)", "*.PNG");
+        FileChooser.ExtensionFilter extFilterBMP = new FileChooser.ExtensionFilter("Bitmap files (*.bmp)", "*.BMP");
+        fileChooser.getExtensionFilters().addAll( extFilterPNG,extFilterBMP);
+        File temp = fileChooser.showOpenDialog((Stage) btnBrowseCoverImage.getScene().getWindow());
+        if (temp!=null)
+        {
+            System.out.println(temp.toString());
+            selectedCoverImageFile = temp;
+            labelSelectedCoverImage.setText(selectedCoverImageFile.toString());
+            try {
+                BufferedImage bufferedImage = ImageIO.read(selectedCoverImageFile);
+                Image image = SwingFXUtils.toFXImage(bufferedImage, null);
+                ImageviewEncoder.setImage(image);
+
+            } catch (IOException e) {
+                e.printStackTrace();
+                labelSelectedCoverImage.setText("Failed to Load");
+            }finally {
+                if (selectedOutputImageFile!=null){
+                    groupEncryption.setDisable(false);
+                    groupImageDetails.setDisable(false);
+                    groupAditionalOptions.setDisable(false);
+                    btnStartEncoding.setDisable(false);
+                }
+            }
+        }
+    }
+    public void openChooseOutputImage(){
+        FileChooser fileChooser = new FileChooser();
+        FileChooser.ExtensionFilter extFilterPNG = new FileChooser.ExtensionFilter("PNG files (*.png)", "*.PNG");
+        FileChooser.ExtensionFilter extFilterBMP = new FileChooser.ExtensionFilter("Bitmap files (*.bmp)", "*.BMP");
+        fileChooser.getExtensionFilters().addAll( extFilterPNG,extFilterBMP);
+        File temp = fileChooser.showSaveDialog(((Stage) btnBrowseOutputFile.getScene().getWindow()));
+        if (temp!=null)
+        {
+            System.out.println(temp.toString());
+            selectedOutputImageFile = temp;
+            labelSelectedOutputFile.setText(selectedOutputImageFile.toString());
+
+            if (selectedCoverImageFile!=null){
+                groupEncryption.setDisable(false);
+                groupImageDetails.setDisable(false);
+                groupAditionalOptions.setDisable(false);
+                btnStartEncoding.setDisable(false);
             }
         }
     }
