@@ -21,6 +21,7 @@ import com.mastercollider.stegofierfx.Encryption.EncryptionType;
 import com.mastercollider.stegofierfx.Encryption.RSA.RSA;
 import com.mastercollider.stegofierfx.Encryption.TripleDES;
 import com.mastercollider.stegofierfx.GUI.FX.DecoderFX;
+import com.mastercollider.stegofierfx.GUI.FX.EncoderFX;
 import com.mastercollider.stegofierfx.GUI.FX.RSAKeyGeneratorFX;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
@@ -441,8 +442,24 @@ public class EncoderFxController implements Initializable {
 
         try {
             CLIExecutor.encode(encodeArgs);
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setHeaderText("Encoding Successful!!!\nOutput file saved as:"+selectedOutputImageFile);
+            alert.setTitle("Success");
+            ButtonType okButton = new ButtonType("Finish", ButtonBar.ButtonData.FINISH);
+            alert.getButtonTypes().setAll(okButton);
+            alert.showAndWait().ifPresent(type -> {
+                if (type.getButtonData()== ButtonBar.ButtonData.FINISH)
+                {
+                    EncoderFX encoderFX = new EncoderFX();
+                    encoderFX.display((Stage)btnStartEncoding.getScene().getWindow());
+                }
+            });
+
         } catch (Exception e) {
-            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("Encoding Failed!!!");
+            alert.setTitle("Error");
+            alert.showAndWait();
         }
     }
 

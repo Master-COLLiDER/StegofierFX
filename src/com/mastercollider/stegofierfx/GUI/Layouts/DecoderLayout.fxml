@@ -240,7 +240,7 @@
                                     </HBox>
                                  </children>
                               </VBox>
-                              <Label alignment="CENTER" layoutX="99.0" layoutY="527.0" prefHeight="21.0" prefWidth="561.0" text="Decryption Error Message" textFill="RED" visible="false" />
+                              <Label fx:id="labelDecryptionError" alignment="CENTER" layoutX="99.0" layoutY="527.0" prefHeight="21.0" prefWidth="561.0" text="Decryption Error Message" textFill="RED" visible="false" />
                               <Separator layoutX="32.0" layoutY="862.0" opacity="0.2" prefWidth="712.0" stylesheets="@../style.css" />
                               <ImageView fx:id="imageViewCoverImage" fitHeight="220.0" fitWidth="240.0" layoutX="82.0" layoutY="217.0" pickOnBounds="true" style="-fx-background-color: #030233; fx-border-color: #1e28f5;">
                                  <cursor>

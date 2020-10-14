@@ -17,15 +17,16 @@ import com.mastercollider.stegofierfx.CLI.DecodeCLIParameters;
 import com.mastercollider.stegofierfx.Color.ColorChannel;
 import com.mastercollider.stegofierfx.Decoder.Decoder;
 import com.mastercollider.stegofierfx.Encryption.EncryptionType;
+import com.mastercollider.stegofierfx.GUI.FX.DecoderFX;
 import com.mastercollider.stegofierfx.GUI.FX.EncoderFX;
 import com.mastercollider.stegofierfx.GUI.FX.RSAKeyGeneratorFX;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -332,9 +333,20 @@ public class DecoderFxController implements Initializable {
         try {
             String message = CLIExecutor.decode(decodeArgs);
             textAreaOutput.setText(message);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText("Decoding Successful!!!");
+            alert.setTitle("Success");
+            ButtonType okButton = new ButtonType("Ok", ButtonBar.ButtonData.FINISH);
+            alert.getButtonTypes().setAll(okButton);
+            alert.showAndWait();
+
         } catch (Exception e) {
             labelDecodingError.setVisible(true);
             labelDecodingError.setText("Wrong Password or Private Key");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("Wrong Password or Private Key!!!");
+            alert.setTitle("Error");
+            alert.showAndWait();
         }
 
     }

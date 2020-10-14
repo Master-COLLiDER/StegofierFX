@@ -4,10 +4,12 @@ package com.mastercollider.stegofierfx.GUI.Controllers;
 import com.mastercollider.stegofierfx.Encryption.RSA.RSAKeyPairGenerator;
 import com.mastercollider.stegofierfx.GUI.FX.DecoderFX;
 import com.mastercollider.stegofierfx.GUI.FX.EncoderFX;
+import com.mastercollider.stegofierfx.GUI.FX.RSAKeyGeneratorFX;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.DirectoryChooser;
@@ -97,8 +99,25 @@ public class RSAKeysGeneratorFxController implements Initializable {
     private void startGeneration() {
         try {
             RSAKeyPairGenerator.GenerateKeyToFiles(selectedDirectory.toString()+"\\");
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText("RSA Key Pairs Generation Successful!!!");
+            alert.setTitle("Success");
+            ButtonType okButton = new ButtonType("Ok", ButtonBar.ButtonData.FINISH);
+            alert.getButtonTypes().setAll(okButton);
+            alert.showAndWait().ifPresent(type -> {
+                if (type.getButtonData()== ButtonBar.ButtonData.FINISH)
+                {
+                    RSAKeyGeneratorFX rsaKeyGeneratorFX = new RSAKeyGeneratorFX();
+                    rsaKeyGeneratorFX.display((Stage)btnGenerate.getScene().getWindow());
+                }
+            });
+
         } catch (NoSuchAlgorithmException | IOException e) {
-            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setHeaderText("RSA Key Pairs Generation Failed!!!");
+            alert.setTitle("Error");
+
+            alert.showAndWait();
         }
         System.out.println("Generated");
     }
