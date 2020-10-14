@@ -52,8 +52,8 @@ public class RSAKeyPairGenerator {
 
     public static void GenerateKeyToFiles(String path) throws NoSuchAlgorithmException, IOException {
         RSAKeyPairGenerator keyPairGenerator = new RSAKeyPairGenerator();
-        keyPairGenerator.writeToFile(path+"publicKey.sfkey", keyPairGenerator.getPublicKey().getEncoded());
-        keyPairGenerator.writeToFile(path+"privateKey.sfkey", keyPairGenerator.getPrivateKey().getEncoded());
+        keyPairGenerator.writeToFile(path+"publicKey.sfpbk", keyPairGenerator.getPublicKey().getEncoded());
+        keyPairGenerator.writeToFile(path+"privateKey.sfpvtk", keyPairGenerator.getPrivateKey().getEncoded());
         System.out.println(Base64.getEncoder().encodeToString(keyPairGenerator.getPublicKey().getEncoded()));
         System.out.println(Base64.getEncoder().encodeToString(keyPairGenerator.getPrivateKey().getEncoded()));
     }

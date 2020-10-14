@@ -79,6 +79,7 @@ public class EncoderFxController implements Initializable {
     @FXML
     private Button btnSideBarGenerateRSAKeys;
 
+
     @FXML private Button btnBrowseCoverImage;
     @FXML private Label labelSelectedCoverImage;
     @FXML private Label labelInvalidCoverImage;
@@ -292,8 +293,8 @@ public class EncoderFxController implements Initializable {
 
     public void openChoosePublicKey(){
         FileChooser fileChooser = new FileChooser();
-        FileChooser.ExtensionFilter extFilterSFKEY = new FileChooser.ExtensionFilter("Stegofier RSA Key (*.sfkey)", "*.SFKEY");
-        fileChooser.getExtensionFilters().addAll( extFilterSFKEY);
+        FileChooser.ExtensionFilter extFilterSFPBK = new FileChooser.ExtensionFilter("Stegofier RSA Public Key (*.sfpbk)", "*.SFPBK");
+        fileChooser.getExtensionFilters().addAll( extFilterSFPBK);
         File temp = fileChooser.showOpenDialog(((Stage) btnBrowsePublicKey.getScene().getWindow()));
         if (temp!=null)
         {

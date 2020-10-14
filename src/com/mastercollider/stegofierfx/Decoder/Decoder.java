@@ -55,6 +55,11 @@ public class Decoder {
         this.imageWidth = coverImage.getWidth();
         this.imageHeight = coverImage.getHeight();
 
+
+    }
+
+    private void stegoChecker()
+    {
         if ((this.imageWidth*this.imageHeight)<HEADER_LENGTH_BYTE*8)
         {
             throw new RuntimeException("Not a stego image!");
@@ -63,11 +68,6 @@ public class Decoder {
         if (coverImage.getType()!= 5 && coverImage.getType()!= 6)
         {
             throw  new RuntimeException("Invalid Stego Image type!");
-        }
-
-        if (coverImage.getType() == BufferedImage.TYPE_4BYTE_ABGR)
-        {
-            isARGB = true;
         }
 
         if (!isStegoImage())
@@ -153,6 +153,8 @@ public class Decoder {
     }
     public void Decode()
     {
+        System.out.println("Checking Stego!");
+        stegoChecker();
         System.out.println("Decoding Started!");
         DecodeHeader();
         DecodeBody();
@@ -186,6 +188,11 @@ public class Decoder {
     {
         x = 0; y = 0;
 
+        if (coverImage.getType() == BufferedImage.TYPE_4BYTE_ABGR)
+        {
+            isARGB = true;
+        }
+
         String Detection_Bits="";
         System.out.println("Detection Started!");
         getPixel();
@@ -208,5 +215,13 @@ public class Decoder {
 
     public String getMessage() {
         return Message;
+    }
+
+    public ColorChannel getColorChannel() {
+        return colorChannel;
+    }
+
+    public int getNo_of_LSB() {
+        return no_of_LSB;
     }
 }
