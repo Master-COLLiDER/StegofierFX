@@ -2,7 +2,7 @@
   <configuration default="false" name="Decode" type="Application" factoryName="Application">
     <option name="MAIN_CLASS_NAME" value="com.mastercollider.stegofierfx.Main" />
     <module name="StegofierFX" />
-    <option name="PROGRAM_PARAMETERS" value="decode  -c &quot;G:\\Output.png&quot;" />
+    <option name="PROGRAM_PARAMETERS" value="decode  -c &quot;G:\\aa.png&quot; -p &quot;pass&quot;" />
     <method v="2">
       <option name="Make" enabled="true" />
     </method>

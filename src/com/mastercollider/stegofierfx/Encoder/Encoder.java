@@ -75,11 +75,16 @@ public class Encoder {
         this.imageWidth = coverImage.getWidth();
         this.imageHeight = coverImage.getHeight();
 
+        int maxTotalRequiredBytes = HEADER_LENGTH_BYTE+Message.length();
 
-        if ((this.imageWidth*this.imageHeight)<HEADER_LENGTH_BYTE*8 + ((float)(Message.length()*8)/(colorChannel.toString().length()*(no_of_LSB+1)))+0.9999f)
+        int bitsPerPixel = (colorChannel.toString().length() *no_of_LSB);
+        int MaxRequiredPixels = (int)(((maxTotalRequiredBytes * 8) /(float)bitsPerPixel)+0.9999f);
+
+
+        if ((this.imageWidth*this.imageHeight)<MaxRequiredPixels)
         {
             System.out.println(this.imageWidth*this.imageHeight);
-            System.out.println(HEADER_LENGTH_BYTE*8 + ((float)(Message.length()*8)/(colorChannel.toString().length()*(no_of_LSB+1)))+0.9999f);
+            System.out.println(MaxRequiredPixels);
             throw new RuntimeException("The cover image is too small");
         }
 
