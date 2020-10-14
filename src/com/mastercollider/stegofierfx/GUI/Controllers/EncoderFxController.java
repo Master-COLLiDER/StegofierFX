@@ -443,9 +443,9 @@ public class EncoderFxController implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
     }
+
+
     public void doMinimizeApplication()
     {
         Stage stage = (Stage) btnMainMinimize.getScene().getWindow();

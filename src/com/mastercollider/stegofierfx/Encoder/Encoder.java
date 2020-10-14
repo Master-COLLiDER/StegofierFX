@@ -77,7 +77,10 @@ public class Encoder {
 
         int maxTotalRequiredBytes = HEADER_LENGTH_BYTE+Message.length();
 
-        int bitsPerPixel = (colorChannel.toString().length() *no_of_LSB);
+
+        System.out.println(colorChannel.toString().length());
+        System.out.println(no_of_LSB);
+        int bitsPerPixel = colorChannel.toString().length()*(no_of_LSB+1);
         int MaxRequiredPixels = (int)(((maxTotalRequiredBytes * 8) /(float)bitsPerPixel)+0.9999f);
 
 
@@ -220,7 +223,8 @@ public class Encoder {
 
 
     public void saveImage() throws IOException {
-        String outputFileExtension = outputFileName.substring(outputFileName.lastIndexOf(".")+1);
+        String outputFileExtension = inputImageFormat.toString();
+        outputFileName = outputFileName.substring(0,outputFileName.lastIndexOf(".")+1)+outputFileExtension;
         File outputFile = new File(outputFileName);
         if(!ImageIO.write(coverImage, outputFileExtension, outputFile))
         {

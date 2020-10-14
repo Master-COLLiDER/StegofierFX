@@ -76,30 +76,33 @@ public class Decoder {
 
 
 
-    public void Decode()
-    {
-        System.out.println("Decoding Started!");
-
-
+    public void DecodeHeader(){
         //decoding header
         System.out.println("Decoding Header!");
         for (int b = 0; b< (HEADER_LENGTH_BYTE-STEGO_IMAGE_DETECTOR_PATTERN_STORE)*8; b++)
         {
-           Header_bits = Header_bits+PixelLSBExtraction.doExtract(pixel,HEADER_COLOR_CHANNEL,HEADER_LSB);
-           getNextPixel();
+            Header_bits = Header_bits+PixelLSBExtraction.doExtract(pixel,HEADER_COLOR_CHANNEL,HEADER_LSB);
+            getNextPixel();
         }
 
         this.colorChannel = ColorChannel.getColorChannel(StringConversionUtility.binaryToInt(Header_bits.substring(0,COLOR_CHANNEL_STORE*8)));
         this.encryptionType = EncryptionType.getEncryptionType(StringConversionUtility.binaryToInt(
-                        Header_bits.substring(COLOR_CHANNEL_STORE*8,
-                                COLOR_CHANNEL_STORE*8+ENCRYPTION_TYPE_STORE*8)));
+                Header_bits.substring(COLOR_CHANNEL_STORE*8,
+                        COLOR_CHANNEL_STORE*8+ENCRYPTION_TYPE_STORE*8)));
         this.no_of_LSB = StringConversionUtility.binaryToInt(Header_bits.substring(+COLOR_CHANNEL_STORE*8+ENCRYPTION_TYPE_STORE*8,
-                        COLOR_CHANNEL_STORE*8+ENCRYPTION_TYPE_STORE*8+NO_OF_LSB_STORE*8));
+                COLOR_CHANNEL_STORE*8+ENCRYPTION_TYPE_STORE*8+NO_OF_LSB_STORE*8));
         this.MessageLength =  StringConversionUtility.binaryToInt(Header_bits.substring(
-                        COLOR_CHANNEL_STORE*8+ENCRYPTION_TYPE_STORE*8+NO_OF_LSB_STORE*8));
+                COLOR_CHANNEL_STORE*8+ENCRYPTION_TYPE_STORE*8+NO_OF_LSB_STORE*8));
 
         System.out.println("Header Decoding Completed!");
 
+        System.out.println(this.colorChannel);
+        System.out.println(this.encryptionType);
+        System.out.println(this.no_of_LSB);
+        System.out.println(this.MessageLength);
+    }
+
+    public void DecodeBody(){
         //decoding payload
         System.out.println("Decoding  Body!");
         ColorChannel[] cc = new ColorChannel[colorChannel.toString().length()];
@@ -125,11 +128,8 @@ public class Decoder {
         }
         else
             cc[0] = colorChannel;
-
-
         for (int b = 0; b< MessageLength*8; b++)
         {
-
             for (int c = 0; c < cc.length; c++)
             {
                 for (int i = 0; i <=no_of_LSB; i++)
@@ -149,13 +149,13 @@ public class Decoder {
             if (Message_bits.length()<MessageLength*8)
                 getNextPixel();
         }
-
-        System.out.println(this.colorChannel);
-        System.out.println(this.encryptionType);
-        System.out.println(this.no_of_LSB);
-        System.out.println(this.MessageLength);
-
         this.Message = StringConversionUtility.convertBinaryToString(Message_bits);
+    }
+    public void Decode()
+    {
+        System.out.println("Decoding Started!");
+        DecodeHeader();
+        DecodeBody();
         System.out.println("Decoding Completed!");
     }
 
@@ -169,7 +169,6 @@ public class Decoder {
         }
         if(y>=imageHeight)
             throw new RuntimeException("Image Out of Bound");
-
         getPixel();
     }
 
