@@ -32,13 +32,17 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.effect.Effect;
+import javafx.scene.effect.GaussianBlur;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -81,6 +85,7 @@ public class EncoderFxController implements Initializable {
     private Button btnSideBarGenerateRSAKeys;
 
 
+    @FXML private AnchorPane anchorPaneMain;
     @FXML private Button btnBrowseCoverImage;
     @FXML private Label labelSelectedCoverImage;
     @FXML private Label labelInvalidCoverImage;
@@ -439,14 +444,23 @@ public class EncoderFxController implements Initializable {
         encodeArgs.coverImageFile = Path.of(selectedCoverImageFile.toString());
         encodeArgs.outputImageFile = Path.of(selectedOutputImageFile.toString());
 
+        Effect effect = anchorPaneMain.getEffect();
+        GaussianBlur blur = new GaussianBlur();
+        blur.setInput(effect);
+        blur.setRadius(13.57);
+        anchorPaneMain.setEffect(blur);
+
 
         try {
             CLIExecutor.encode(encodeArgs);
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setHeaderText("Encoding Successful!!!\nOutput file saved as:"+selectedOutputImageFile);
             alert.setTitle("Success");
+            alert.initStyle(StageStyle.UNDECORATED);
+            alert.initOwner((Stage)btnStartEncoding.getScene().getWindow());
             ButtonType okButton = new ButtonType("Finish", ButtonBar.ButtonData.FINISH);
             alert.getButtonTypes().setAll(okButton);
+            Toolkit.getDefaultToolkit().beep();
             alert.showAndWait().ifPresent(type -> {
                 if (type.getButtonData()== ButtonBar.ButtonData.FINISH)
                 {
@@ -459,8 +473,13 @@ public class EncoderFxController implements Initializable {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText("Encoding Failed!!!");
             alert.setTitle("Error");
+            alert.initStyle(StageStyle.UNDECORATED);
+            alert.initOwner((Stage)btnStartEncoding.getScene().getWindow());
+            Toolkit.getDefaultToolkit().beep();
             alert.showAndWait();
         }
+
+        anchorPaneMain.setEffect(effect);
     }
 
 

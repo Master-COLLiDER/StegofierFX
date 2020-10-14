@@ -12,9 +12,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.effect.Effect;
+import javafx.scene.effect.GaussianBlur;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.awt.*;
 import java.io.File;
@@ -54,6 +58,8 @@ public class RSAKeysGeneratorFxController implements Initializable {
     @FXML
     private Button btnSideBarGenerateRSAKeys;
 
+    @FXML
+    AnchorPane anchorPaneMain;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -97,13 +103,22 @@ public class RSAKeysGeneratorFxController implements Initializable {
     }
 
     private void startGeneration() {
+        Effect effect = anchorPaneMain.getEffect();
+        GaussianBlur blur = new GaussianBlur();
+        blur.setInput(effect);
+        blur.setRadius(13.57);
+        anchorPaneMain.setEffect(blur);
+
         try {
             RSAKeyPairGenerator.GenerateKeyToFiles(selectedDirectory.toString()+"\\");
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setHeaderText("RSA Key Pairs Generation Successful!!!");
             alert.setTitle("Success");
+            alert.initStyle(StageStyle.UNDECORATED);
+            alert.initOwner(btnGenerate.getScene().getWindow());
             ButtonType okButton = new ButtonType("Ok", ButtonBar.ButtonData.FINISH);
             alert.getButtonTypes().setAll(okButton);
+            Toolkit.getDefaultToolkit().beep();
             alert.showAndWait().ifPresent(type -> {
                 if (type.getButtonData()== ButtonBar.ButtonData.FINISH)
                 {
@@ -116,10 +131,13 @@ public class RSAKeysGeneratorFxController implements Initializable {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setHeaderText("RSA Key Pairs Generation Failed!!!");
             alert.setTitle("Error");
-
+            alert.initStyle(StageStyle.UNDECORATED);
+            alert.initOwner((Stage)btnGenerate.getScene().getWindow());
+            Toolkit.getDefaultToolkit().beep();
             alert.showAndWait();
         }
         System.out.println("Generated");
+        anchorPaneMain.setEffect(effect);
     }
 
 

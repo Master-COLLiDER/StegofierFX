@@ -154,9 +154,9 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-//        SplashScreen splashScreen = new SplashScreen();
-//        splashScreen.start(primaryStage);
-        EncoderFX encoderFX = new EncoderFX();
-        encoderFX.start(primaryStage);
+        SplashScreen splashScreen = new SplashScreen();
+        splashScreen.start(primaryStage);
+//        EncoderFX encoderFX = new EncoderFX();
+//        encoderFX.start(primaryStage);
     }
 }

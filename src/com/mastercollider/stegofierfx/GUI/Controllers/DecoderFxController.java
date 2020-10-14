@@ -28,14 +28,18 @@ import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.effect.Effect;
+import javafx.scene.effect.GaussianBlur;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -58,6 +62,7 @@ public class DecoderFxController implements Initializable {
     int decodedNoOfLSB = -1;
 
 
+    @FXML private AnchorPane anchorPaneMain;
     @FXML public Label labelDecryptionHeader;
     @FXML public Label labelNoOFLSB;
     @FXML public Label labelSelectedCoverImage;
@@ -321,6 +326,8 @@ public class DecoderFxController implements Initializable {
         System.out.println("Password : "+passwordField.getText());
         System.out.println("Selected PrivateKey : "+selectedPrivateKey);
 
+
+
         DecodeCLIParameters decodeArgs = new DecodeCLIParameters();
         decodeArgs.coverImageFile = selectedCoverImageFile.toPath();
         if (selectedOutputFile!=null)
@@ -330,24 +337,39 @@ public class DecoderFxController implements Initializable {
         if (!passwordField.getText().equals("")|| passwordField.getText()!=null)
              decodeArgs.password = passwordField.getText();
 
+        Effect effect = anchorPaneMain.getEffect();
+        GaussianBlur blur = new GaussianBlur();
+        blur.setInput(effect);
+        blur.setRadius(13.57);
+        anchorPaneMain.setEffect(blur);
+
+
         try {
             String message = CLIExecutor.decode(decodeArgs);
             textAreaOutput.setText(message);
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setHeaderText("Decoding Successful!!!");
             alert.setTitle("Success");
+            alert.initStyle(StageStyle.UNDECORATED);
+            alert.initOwner((Stage)btnStartDecoding.getScene().getWindow());
+
             ButtonType okButton = new ButtonType("Ok", ButtonBar.ButtonData.FINISH);
             alert.getButtonTypes().setAll(okButton);
+            Toolkit.getDefaultToolkit().beep();
             alert.showAndWait();
 
         } catch (Exception e) {
             labelDecodingError.setVisible(true);
             labelDecodingError.setText("Wrong Password or Private Key");
             Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.initStyle(StageStyle.UNDECORATED);
+            alert.initOwner((Stage)btnStartDecoding.getScene().getWindow());
             alert.setHeaderText("Wrong Password or Private Key!!!");
             alert.setTitle("Error");
+            Toolkit.getDefaultToolkit().beep();
             alert.showAndWait();
         }
+        anchorPaneMain.setEffect(effect);
 
     }
     public void doMinimizeApplication()
