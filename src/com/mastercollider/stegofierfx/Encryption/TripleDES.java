@@ -44,33 +44,25 @@ public class TripleDES {
     /**
      * Method To Encrypt The String
      */
-    public String encrypt(String unencryptedString) {
+    public String encrypt(String unencryptedString) throws Exception {
         String encryptedString = null;
-        try {
-            cipher.init(Cipher.ENCRYPT_MODE, key);
-            byte[] plainText = unencryptedString.getBytes(UNICODE_FORMAT);
-            byte[] encryptedText = cipher.doFinal(plainText);
+        cipher.init(Cipher.ENCRYPT_MODE, key);
+        byte[] plainText = unencryptedString.getBytes(UNICODE_FORMAT);
+        byte[] encryptedText = cipher.doFinal(plainText);
 
-            encryptedString = Base64.getEncoder().encodeToString(encryptedText);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        encryptedString = Base64.getEncoder().encodeToString(encryptedText);
         return encryptedString;
     }
     /**
      * Method To Decrypt An Ecrypted String
      */
-    public String decrypt(String encryptedString) {
+    public String decrypt(String encryptedString) throws Exception {
         String decryptedText=null;
-        try {
-            cipher.init(Cipher.DECRYPT_MODE, key);
+        cipher.init(Cipher.DECRYPT_MODE, key);
 
-            byte[] encryptedText = Base64.getDecoder().decode(encryptedString);
-            byte[] plainText = cipher.doFinal(encryptedText);
-            decryptedText= bytes2String(plainText);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        byte[] encryptedText = Base64.getDecoder().decode(encryptedString);
+        byte[] plainText = cipher.doFinal(encryptedText);
+        decryptedText= bytes2String(plainText);
         return decryptedText;
     }
 
