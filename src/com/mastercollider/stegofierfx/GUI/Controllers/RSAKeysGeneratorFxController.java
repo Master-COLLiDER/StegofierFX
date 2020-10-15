@@ -2,13 +2,12 @@ package com.mastercollider.stegofierfx.GUI.Controllers;
 
 
 import com.mastercollider.stegofierfx.Encryption.RSA.RSAKeyPairGenerator;
-import com.mastercollider.stegofierfx.GUI.FX.DecoderFX;
-import com.mastercollider.stegofierfx.GUI.FX.EncoderFX;
-import com.mastercollider.stegofierfx.GUI.FX.RSAKeyGeneratorFX;
+import com.mastercollider.stegofierfx.GUI.DecoderFX;
+import com.mastercollider.stegofierfx.GUI.EncoderFX;
+import com.mastercollider.stegofierfx.GUI.RSAKeyGeneratorFX;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -16,7 +15,6 @@ import javafx.scene.effect.Effect;
 import javafx.scene.effect.GaussianBlur;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.DirectoryChooser;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -26,7 +24,6 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.nio.file.Path;
 import java.security.NoSuchAlgorithmException;
 import java.util.ResourceBundle;
 

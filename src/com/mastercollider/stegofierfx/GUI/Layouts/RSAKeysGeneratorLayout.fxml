@@ -22,7 +22,7 @@
          <children>
             <ImageView fitHeight="172.0" fitWidth="191.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../images/logo_black_background.png" />
+                  <Image url="@../images/logo_black_background.png" />
                </image>
                <VBox.margin>
                   <Insets bottom="10.0" top="50.0" />
@@ -36,7 +36,7 @@
                <graphic>
                   <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../images/lock_32px.png" />
+                        <Image url="@../images/lock_32px.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -57,7 +57,7 @@
                <graphic>
                   <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../images/unlock_32px.png" />
+                        <Image url="@../images/unlock_32px.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -75,7 +75,7 @@
                <graphic>
                   <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../images/key_32px.png" />
+                        <Image url="@../images/key_32px.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -90,7 +90,7 @@
                <graphic>
                   <ImageView fitHeight="23.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../images/icons8_Sign_Out_32px.png" />
+                        <Image url="@../images/icons8_Sign_Out_32px.png" />
                      </image>
                   </ImageView>
                </graphic>

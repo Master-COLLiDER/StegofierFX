@@ -1,4 +1,14 @@
-package com.mastercollider.stegofierfx.GUI.FX;
+/*******************************************************************************
+ * Master-COLLiDER CONFIDENTIAL
+ * @author Probal D. Saikia.
+ * Github.com/Master-COLLiDER
+ * Copyright (c) 2020 - 2020.
+ * NOTICE: This file is subject to the terms and conditions defined
+ *  in file 'LICENSE.txt' which is part of this source code package.
+ *
+ ******************************************************************************/
+
+package com.mastercollider.stegofierfx.GUI;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -9,8 +19,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class DecoderFX extends Application {
-
+public class RSAKeyGeneratorFX extends Application {
 
     private double xOffset,yOffset;
 
@@ -21,7 +30,7 @@ public class DecoderFX extends Application {
 
     public void display(Stage stage) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("../Layouts/DecoderLayout.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("layouts/RSAKeysGeneratorLayout.fxml"));
 
             stage.setScene(new Scene(root));
 

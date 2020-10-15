@@ -3,10 +3,8 @@ package com.mastercollider.stegofierfx;
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.ParameterException;
 import com.mastercollider.stegofierfx.CLI.*;
-import com.mastercollider.stegofierfx.Encoder.Encoder;
 import com.mastercollider.stegofierfx.Encryption.RSA.RSAKeyPairGenerator;
-import com.mastercollider.stegofierfx.GUI.FX.EncoderFX;
-import com.mastercollider.stegofierfx.GUI.FX.SplashScreen;
+import com.mastercollider.stegofierfx.GUI.SplashScreen;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
